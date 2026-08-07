@@ -2189,3 +2189,57 @@
 {"_e":"metro:bundling:progress","_t":1786107801590,"id":"2","progress":0.9565599238763784,"total":1958,"current":1915}
 {"_e":"metro:bundling:progress","_t":1786107801690,"id":"2","progress":0.9787957830058289,"total":2064,"current":2042}
 {"_e":"metro:bundling:done","_t":1786107801934,"id":"2","total":2064,"ms":2721.080855}
+{"_e":"metro:client_log","_t":1786108818429,"level":"warn","data":["Route \"./(app)/(tabs)/rewards.tsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:bundling:failed","_t":1786108887911,"id":"1","message":"Unable to resolve \"../../profile/stores/profile.store\" from \"apps/mobile/src/features/auth/screens/GreetingScreen.tsx\"\n   9 | import { useOnboarding } from '@/features/auth/stores/onboarding.store';\n  10 | import { useSession } from '@/features/auth/stores/session.store';\n> 11 | import { useProfile } from '@/features/profile/stores/profile.store';\n     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  12 |\n  13 | export function GreetingScreen() {\n  14 |   const { preferredName, greeting, phone, countryCode, tokens, set, reset } = useOnboarding();","importStack":"\u001b[1mImport stack:\u001b[22m\n\n\u001b[90m \u001b[39mapps/mobile/src/features/auth/screens/GreetingScreen.tsx\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"../../profile/stores/profile.store\"\u001b[39m\n\n\u001b[90m \u001b[39mapps/mobile/app/(auth)/greeting.tsx\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"../../src/features/auth/screens/GreetingScreen\"\u001b[39m\n\n\u001b[90m \u001b[39mapps/mobile/app\u001b[2m (require.context)\u001b[22m\n","filename":null,"targetModuleName":"../../profile/stores/profile.store","originModulePath":"apps/mobile/src/features/auth/screens/GreetingScreen.tsx"}
+{"_e":"metro:bundling:failed","_t":1786108905993,"id":"1","message":"Unable to resolve \"../../profile/stores/profile.store\" from \"apps/mobile/src/features/auth/screens/GreetingScreen.tsx\"\n   9 | import { useOnboarding } from '@/features/auth/stores/onboarding.store';\n  10 | import { useSession } from '@/features/auth/stores/session.store';\n> 11 | import { useProfile } from '@/features/profile/stores/profile.store';\n     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  12 |\n  13 | export function GreetingScreen() {\n  14 |   const { preferredName, greeting, phone, countryCode, tokens, set, reset } = useOnboarding();","importStack":"\u001b[1mImport stack:\u001b[22m\n\n\u001b[90m \u001b[39mapps/mobile/src/features/auth/screens/GreetingScreen.tsx\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"../../profile/stores/profile.store\"\u001b[39m\n\n\u001b[90m \u001b[39mapps/mobile/app/(auth)/greeting.tsx\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"../../src/features/auth/screens/GreetingScreen\"\u001b[39m\n\n\u001b[90m \u001b[39mapps/mobile/app\u001b[2m (require.context)\u001b[22m\n","filename":null,"targetModuleName":"../../profile/stores/profile.store","originModulePath":"apps/mobile/src/features/auth/screens/GreetingScreen.tsx"}
+{"_e":"metro:bundling:started","_t":1786109133230,"id":"5","platform":"android","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1786109133231,"id":"5","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1786109133508,"id":"5","total":1,"ms":277.401124}
+{"_e":"metro:client_log","_t":1786109151999,"level":"warn","data":["Route \"./(app)/(tabs)/rewards.tsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1786109154630,"level":"warn","data":["Unable to get the view config for default view from module &s ExpoLinearGradient"]}
+{"_e":"metro:bundling:started","_t":1786109218803,"id":"7","platform":"android","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1786109218804,"id":"7","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1786109218825,"id":"7","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1786109218926,"id":"7","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1786109219181,"id":"7","total":1,"ms":377.551094}
+{"_e":"root:init","_t":1786109608065,"format":"v0-jsonl","version":"56.1.22"}
+{"_e":"devserver:start","_t":1786109608153,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../../../app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1786109610619,"serverRoot":"../../../../..","projectRoot":"../../..","exporting":false,"flags":{"autolinkingModuleResolution":true,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"metro:instantiate","_t":1786109612657,"atlas":false,"workers":8,"host":"::","port":8081}
+{"_e":"metro:bundling:started","_t":1786109632911,"id":"1","platform":"android","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1786109632912,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1786109632934,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1786109633069,"id":"1","progress":0.07840000000000001,"total":50,"current":14}
+{"_e":"metro:bundling:progress","_t":1786109633171,"id":"1","progress":0.07840000000000001,"total":195,"current":35}
+{"_e":"metro:bundling:progress","_t":1786109633295,"id":"1","progress":0.07840000000000001,"total":196,"current":35}
+{"_e":"metro:bundling:progress","_t":1786109633395,"id":"1","progress":0.07840000000000001,"total":302,"current":81}
+{"_e":"metro:bundling:progress","_t":1786109633495,"id":"1","progress":0.1519000657462196,"total":390,"current":152}
+{"_e":"metro:bundling:progress","_t":1786109633595,"id":"1","progress":0.2335794597056519,"total":509,"current":246}
+{"_e":"metro:bundling:progress","_t":1786109633695,"id":"1","progress":0.2869897959183673,"total":616,"current":330}
+{"_e":"metro:bundling:progress","_t":1786109633795,"id":"1","progress":0.3073553941111538,"total":671,"current":372}
+{"_e":"metro:bundling:progress","_t":1786109633899,"id":"1","progress":0.364984795717028,"total":773,"current":467}
+{"_e":"metro:bundling:progress","_t":1786109633999,"id":"1","progress":0.47062200983805386,"total":844,"current":579}
+{"_e":"metro:bundling:progress","_t":1786109634099,"id":"1","progress":0.5099822778827978,"total":920,"current":657}
+{"_e":"metro:bundling:progress","_t":1786109634199,"id":"1","progress":0.6237876561550847,"total":961,"current":759}
+{"_e":"metro:bundling:progress","_t":1786109634300,"id":"1","progress":0.7176679464391751,"total":1001,"current":848}
+{"_e":"metro:bundling:progress","_t":1786109634436,"id":"1","progress":0.7176679464391751,"total":1102,"current":914}
+{"_e":"metro:bundling:progress","_t":1786109634721,"id":"1","progress":0.7176679464391751,"total":1106,"current":919}
+{"_e":"metro:bundling:progress","_t":1786109634723,"id":"1","progress":0.7176679464391751,"total":1106,"current":920}
+{"_e":"metro:bundling:progress","_t":1786109634823,"id":"1","progress":0.7176679464391751,"total":1179,"current":992}
+{"_e":"metro:bundling:progress","_t":1786109634925,"id":"1","progress":0.7578071120117986,"total":1228,"current":1069}
+{"_e":"metro:bundling:progress","_t":1786109635025,"id":"1","progress":0.7578071120117986,"total":1284,"current":1109}
+{"_e":"metro:bundling:progress","_t":1786109635125,"id":"1","progress":0.8677434166685067,"total":1329,"current":1238}
+{"_e":"metro:bundling:progress","_t":1786109635227,"id":"1","progress":0.8677434166685067,"total":1451,"current":1309}
+{"_e":"metro:bundling:progress","_t":1786109635327,"id":"1","progress":0.8677434166685067,"total":1570,"current":1402}
+{"_e":"metro:bundling:progress","_t":1786109635429,"id":"1","progress":0.8677434166685067,"total":1616,"current":1431}
+{"_e":"metro:bundling:progress","_t":1786109635529,"id":"1","progress":0.8677434166685067,"total":1694,"current":1529}
+{"_e":"metro:bundling:progress","_t":1786109635629,"id":"1","progress":0.8677434166685067,"total":1738,"current":1585}
+{"_e":"metro:bundling:progress","_t":1786109635730,"id":"1","progress":0.8677434166685067,"total":1779,"current":1630}
+{"_e":"metro:bundling:progress","_t":1786109635830,"id":"1","progress":0.8677434166685067,"total":1882,"current":1730}
+{"_e":"metro:bundling:progress","_t":1786109635930,"id":"1","progress":0.9097916889174187,"total":1906,"current":1818}
+{"_e":"metro:bundling:progress","_t":1786109636030,"id":"1","progress":0.9345763722212734,"total":1954,"current":1889}
+{"_e":"metro:bundling:progress","_t":1786109636136,"id":"1","progress":0.9523169286278149,"total":1989,"current":1941}
+{"_e":"metro:bundling:progress","_t":1786109636236,"id":"1","progress":0.9648121564370996,"total":2028,"current":1992}
+{"_e":"metro:bundling:progress","_t":1786109636337,"id":"1","progress":0.999,"total":2082,"current":2081}
+{"_e":"metro:bundling:progress","_t":1786109636801,"id":"1","progress":0.999,"total":2082,"current":2082}
+{"_e":"metro:bundling:done","_t":1786109637061,"id":"1","total":2082,"ms":4149.810025}

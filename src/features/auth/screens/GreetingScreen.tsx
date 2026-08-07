@@ -8,21 +8,26 @@ import { TextField } from '@/shared/ui/TextField';
 import { color } from '@sr/design-tokens';
 import { useOnboarding } from '@/features/auth/stores/onboarding.store';
 import { useSession } from '@/features/auth/stores/session.store';
+import { useProfile } from '@/features/profile/stores/profile.store';
 
 export function GreetingScreen() {
-  const { preferredName, greeting, tokens, set, reset } = useOnboarding();
+  const { preferredName, greeting, phone, countryCode, tokens, set, reset } = useOnboarding();
   const signIn = useSession((s) => s.signIn);
+  const setProfile = useProfile((s) => s.set);
 
   const finish = async () => {
-    if (tokens) {
+    setProfile({
+      preferredName,
+      greeting,
+      phone: `${countryCode} ${phone}`.trim() || '+44 7700 900000',
+    });
+    if (tokens)
       await signIn({
         accessToken: tokens.accessToken,
         refreshToken: tokens.refreshToken,
         userId: 'me',
       });
-    }
     reset();
-    // First-run funnel: straight into the send flow, now inside the authenticated shell.
     router.replace('/(app)/send/destination');
   };
 
@@ -45,7 +50,6 @@ export function GreetingScreen() {
           </Text>
           <Text className="font-sans text-body text-navy/50">Make it feel like home.</Text>
         </View>
-
         <View className="mt-8 gap-6">
           <TextField
             label="Preferred name"
@@ -65,7 +69,6 @@ export function GreetingScreen() {
             </Text>
           </View>
         </View>
-
         {showPreview ? (
           <View
             className="rounded-card px-5 py-4 mt-6"
@@ -80,7 +83,6 @@ export function GreetingScreen() {
           </View>
         ) : null}
       </ScrollView>
-
       <View className="pb-6 gap-3">
         <Button label="Continue" onPress={finish} />
         <Pressable onPress={finish} className="flex-row items-center justify-center gap-2">
