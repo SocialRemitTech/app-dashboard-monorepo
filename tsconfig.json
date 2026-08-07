@@ -1,0 +1,18 @@
+{
+  "extends": "@sr/tsconfig/react-native.json",
+  "compilerOptions": {
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+  },
+  "include": [
+    "app",
+    "src",
+    "*.ts",
+    ".expo/types/**/*.ts",
+    "nativewind-env.d.ts",
+    "expo-env.d.ts"
+  ]
+}
