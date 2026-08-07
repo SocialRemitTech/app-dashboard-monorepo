@@ -2075,3 +2075,117 @@
 {"_e":"metro:bundling:progress","_t":1786104184671,"id":"1","progress":0.9612252383830848,"total":2043,"current":2003}
 {"_e":"metro:bundling:progress","_t":1786104184786,"id":"1","progress":0.999,"total":2051,"current":2051}
 {"_e":"metro:bundling:done","_t":1786104185127,"id":"1","total":2051,"ms":5596.09294}
+{"_e":"metro:client_log","_t":1786106471125,"level":"warn","data":["Route \"./(app)/send/destination.tsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1786106482885,"level":"warn","data":["Route \"./(app)/send/amount.tsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1786106482901,"level":"warn","data":["Route \"./(app)/send/destination.tsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1786106503477,"level":"warn","data":["Route \"./(app)/send/amount.tsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1786106503480,"level":"warn","data":["Route \"./(app)/send/destination.tsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1786106503490,"level":"warn","data":["Route \"./(app)/send/recipient.tsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1786107226420,"level":"warn","data":["Route \"./(app)/send/amount.tsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1786107226443,"level":"warn","data":["Route \"./(app)/send/destination.tsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1786107226445,"level":"warn","data":["Route \"./(app)/send/recipient.tsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1786107241171,"level":"warn","data":["Route \"./(app)/send/amount.tsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1786107241179,"level":"warn","data":["Route \"./(app)/send/destination.tsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:client_log","_t":1786107241189,"level":"warn","data":["Route \"./(app)/send/recipient.tsx\" is missing the required default export. Ensure a React component is exported as default."]}
+{"_e":"metro:bundling:failed","_t":1786107300365,"id":null,"message":"Unable to resolve \"../../../assets/flags/gb.png\" from \"apps/mobile/src/shared/ui/Flag.tsx\"\n  3 |\n  4 | const FLAGS: Record<string, number> = {\n> 5 |   gb: require('@/../assets/flags/gb.png'),\n    |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  6 |   gh: require('@/../assets/flags/gh.png'),\n  7 |   ng: require('@/../assets/flags/ng.png'),\n  8 |   ke: require('@/../assets/flags/ke.png'),","importStack":"\u001b[1mImport stack:\u001b[22m\n\n\u001b[90m \u001b[39mapps/mobile/src/shared/ui/Flag.tsx\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"../../../assets/flags/gb.png\"\u001b[39m\n\n\u001b[90m \u001b[39mapps/mobile/app/(app)/send/amount.tsx\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"../../../src/shared/ui/Flag\"\u001b[39m\n\n\u001b[90m \u001b[39mapps/mobile/app\u001b[2m (require.context)\u001b[22m\n","filename":null,"targetModuleName":"../../../assets/flags/gb.png","originModulePath":"apps/mobile/src/shared/ui/Flag.tsx"}
+{"_e":"metro:bundling:failed","_t":1786107315072,"id":null,"message":"Unable to resolve \"../../../assets/flags/gb.png\" from \"apps/mobile/src/shared/ui/Flag.tsx\"\n  3 |\n  4 | const FLAGS: Record<string, number> = {\n> 5 |   gb: require('@/../assets/flags/gb.png'),\n    |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  6 |   gh: require('@/../assets/flags/gh.png'),\n  7 |   ng: require('@/../assets/flags/ng.png'),\n  8 |   ke: require('@/../assets/flags/ke.png'),","importStack":"\u001b[1mImport stack:\u001b[22m\n\n\u001b[90m \u001b[39mapps/mobile/src/shared/ui/Flag.tsx\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"../../../assets/flags/gb.png\"\u001b[39m\n\n\u001b[90m \u001b[39mapps/mobile/app/(app)/send/amount.tsx\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"../../../src/shared/ui/Flag\"\u001b[39m\n\n\u001b[90m \u001b[39mapps/mobile/app\u001b[2m (require.context)\u001b[22m\n","filename":null,"targetModuleName":"../../../assets/flags/gb.png","originModulePath":"apps/mobile/src/shared/ui/Flag.tsx"}
+{"_e":"metro:bundling:failed","_t":1786107346356,"id":null,"message":"Unable to resolve \"../../../assets/flags/gb.png\" from \"apps/mobile/src/shared/ui/Flag.tsx\"\n  3 |\n  4 | const FLAGS: Record<string, number> = {\n> 5 |   gb: require('@/../assets/flags/gb.png'),\n    |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  6 |   gh: require('@/../assets/flags/gh.png'),\n  7 |   ng: require('@/../assets/flags/ng.png'),\n  8 |   ke: require('@/../assets/flags/ke.png'),","importStack":"\u001b[1mImport stack:\u001b[22m\n\n\u001b[90m \u001b[39mapps/mobile/src/shared/ui/Flag.tsx\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"../../../assets/flags/gb.png\"\u001b[39m\n\n\u001b[90m \u001b[39mapps/mobile/app/(app)/send/amount.tsx\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"../../../src/shared/ui/Flag\"\u001b[39m\n\n\u001b[90m \u001b[39mapps/mobile/app\u001b[2m (require.context)\u001b[22m\n","filename":null,"targetModuleName":"../../../assets/flags/gb.png","originModulePath":"apps/mobile/src/shared/ui/Flag.tsx"}
+{"_e":"metro:bundling:failed","_t":1786107346671,"id":null,"message":"Unable to resolve \"../../../assets/flags/gb.png\" from \"apps/mobile/src/shared/ui/Flag.tsx\"\n  3 |\n  4 | const FLAGS: Record<string, number> = {\n> 5 |   gb: require('@/../assets/flags/gb.png'),\n    |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  6 |   gh: require('@/../assets/flags/gh.png'),\n  7 |   ng: require('@/../assets/flags/ng.png'),\n  8 |   ke: require('@/../assets/flags/ke.png'),","importStack":"\u001b[1mImport stack:\u001b[22m\n\n\u001b[90m \u001b[39mapps/mobile/src/shared/ui/Flag.tsx\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"../../../assets/flags/gb.png\"\u001b[39m\n\n\u001b[90m \u001b[39mapps/mobile/app/(app)/send/amount.tsx\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"../../../src/shared/ui/Flag\"\u001b[39m\n\n\u001b[90m \u001b[39mapps/mobile/app\u001b[2m (require.context)\u001b[22m\n","filename":null,"targetModuleName":"../../../assets/flags/gb.png","originModulePath":"apps/mobile/src/shared/ui/Flag.tsx"}
+{"_e":"metro:bundling:failed","_t":1786107350599,"id":null,"message":"Unable to resolve \"../../../assets/flags/gb.png\" from \"apps/mobile/src/shared/ui/Flag.tsx\"\n  3 |\n  4 | const FLAGS: Record<string, number> = {\n> 5 |   gb: require('@/../assets/flags/gb.png'),\n    |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  6 |   gh: require('@/../assets/flags/gh.png'),\n  7 |   ng: require('@/../assets/flags/ng.png'),\n  8 |   ke: require('@/../assets/flags/ke.png'),","importStack":"\u001b[1mImport stack:\u001b[22m\n\n\u001b[90m \u001b[39mapps/mobile/src/shared/ui/Flag.tsx\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"../../../assets/flags/gb.png\"\u001b[39m\n\n\u001b[90m \u001b[39mapps/mobile/app/(app)/send/amount.tsx\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"../../../src/shared/ui/Flag\"\u001b[39m\n\n\u001b[90m \u001b[39mapps/mobile/app\u001b[2m (require.context)\u001b[22m\n","filename":null,"targetModuleName":"../../../assets/flags/gb.png","originModulePath":"apps/mobile/src/shared/ui/Flag.tsx"}
+{"_e":"metro:bundling:started","_t":1786107450468,"id":"4","platform":"android","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1786107450480,"id":"4","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1786107450692,"id":"4","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1786107450895,"id":"4","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1786107452811,"id":"4","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1786107452909,"id":"4","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1786107453017,"id":"4","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1786107453123,"id":"4","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1786107453225,"id":"4","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1786107454199,"id":"4","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1786107455158,"id":"4","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1786107455161,"id":"4","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1786107455285,"id":"4","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1786107456782,"id":"4","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:failed","_t":1786107457866,"id":"4","message":"Unable to resolve \"../../../assets/flags/gb.png\" from \"apps/mobile/src/shared/ui/Flag.tsx\"\n  3 |\n  4 | const FLAGS: Record<string, number> = {\n> 5 |   gb: require('@/../assets/flags/gb.png'),\n    |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  6 |   gh: require('@/../assets/flags/gh.png'),\n  7 |   ng: require('@/../assets/flags/ng.png'),\n  8 |   ke: require('@/../assets/flags/ke.png'),","importStack":"\u001b[1mImport stack:\u001b[22m\n\n\u001b[90m \u001b[39mapps/mobile/src/shared/ui/Flag.tsx\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"../../../assets/flags/gb.png\"\u001b[39m\n\n\u001b[90m \u001b[39mapps/mobile/app/(app)/send/amount.tsx\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"../../../src/shared/ui/Flag\"\u001b[39m\n\n\u001b[90m \u001b[39mapps/mobile/app\u001b[2m (require.context)\u001b[22m\n","filename":null,"targetModuleName":"../../../assets/flags/gb.png","originModulePath":"apps/mobile/src/shared/ui/Flag.tsx"}
+{"_e":"metro:bundling:started","_t":1786107578075,"id":"5","platform":"android","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1786107578078,"id":"5","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1786107578137,"id":"5","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1786107578237,"id":"5","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1786107578305,"id":"5","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:failed","_t":1786107578365,"id":"5","message":"Unable to resolve \"../../../assets/flags/gb.png\" from \"apps/mobile/src/shared/ui/Flag.tsx\"\n  3 |\n  4 | const FLAGS: Record<string, number> = {\n> 5 |   gb: require('@/../assets/flags/gb.png'),\n    |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  6 |   gh: require('@/../assets/flags/gh.png'),\n  7 |   ng: require('@/../assets/flags/ng.png'),\n  8 |   ke: require('@/../assets/flags/ke.png'),","importStack":"\u001b[1mImport stack:\u001b[22m\n\n\u001b[90m \u001b[39mapps/mobile/src/shared/ui/Flag.tsx\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"../../../assets/flags/gb.png\"\u001b[39m\n\n\u001b[90m \u001b[39mapps/mobile/app/(app)/send/amount.tsx\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"../../../src/shared/ui/Flag\"\u001b[39m\n\n\u001b[90m \u001b[39mapps/mobile/app\u001b[2m (require.context)\u001b[22m\n","filename":null,"targetModuleName":"../../../assets/flags/gb.png","originModulePath":"apps/mobile/src/shared/ui/Flag.tsx"}
+{"_e":"root:init","_t":1786107639453,"format":"v0-jsonl","version":"56.1.22"}
+{"_e":"devserver:start","_t":1786107639518,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../../../app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1786107642347,"serverRoot":"../../../../..","projectRoot":"../../..","exporting":false,"flags":{"autolinkingModuleResolution":true,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"metro:instantiate","_t":1786107643702,"atlas":false,"workers":8,"host":"::","port":8081}
+{"_e":"metro:bundling:started","_t":1786107686765,"id":"1","platform":"android","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1786107686766,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1786107686782,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1786107686919,"id":"1","progress":0.0672153635116598,"total":27,"current":7}
+{"_e":"metro:bundling:progress","_t":1786107687022,"id":"1","progress":0.0672153635116598,"total":160,"current":26}
+{"_e":"metro:bundling:progress","_t":1786107687123,"id":"1","progress":0.0672153635116598,"total":197,"current":33}
+{"_e":"metro:bundling:progress","_t":1786107687292,"id":"1","progress":0.0672153635116598,"total":218,"current":51}
+{"_e":"metro:bundling:progress","_t":1786107687391,"id":"1","progress":0.07579209624809453,"total":247,"current":68}
+{"_e":"metro:bundling:progress","_t":1786107687491,"id":"1","progress":0.13765935396870982,"total":283,"current":105}
+{"_e":"metro:bundling:progress","_t":1786107687592,"id":"1","progress":0.15268204677473712,"total":389,"current":152}
+{"_e":"metro:bundling:progress","_t":1786107687692,"id":"1","progress":0.25,"total":466,"current":233}
+{"_e":"metro:bundling:progress","_t":1786107687792,"id":"1","progress":0.2982682002120861,"total":531,"current":290}
+{"_e":"metro:bundling:progress","_t":1786107687901,"id":"1","progress":0.31873876145783087,"total":604,"current":341}
+{"_e":"metro:bundling:progress","_t":1786107688008,"id":"1","progress":0.31873876145783087,"total":667,"current":367}
+{"_e":"metro:bundling:progress","_t":1786107688109,"id":"1","progress":0.34717033108934076,"total":723,"current":426}
+{"_e":"metro:bundling:progress","_t":1786107688209,"id":"1","progress":0.47093677194871314,"total":749,"current":514}
+{"_e":"metro:bundling:progress","_t":1786107688319,"id":"1","progress":0.47100505038831353,"total":832,"current":571}
+{"_e":"metro:bundling:progress","_t":1786107688418,"id":"1","progress":0.5130919187145558,"total":920,"current":659}
+{"_e":"metro:bundling:progress","_t":1786107688518,"id":"1","progress":0.5684554905225081,"total":947,"current":714}
+{"_e":"metro:bundling:progress","_t":1786107688618,"id":"1","progress":0.624584564841149,"total":1011,"current":799}
+{"_e":"metro:bundling:progress","_t":1786107688753,"id":"1","progress":0.7574516855052362,"total":1041,"current":906}
+{"_e":"metro:bundling:progress","_t":1786107688864,"id":"1","progress":0.7574516855052362,"total":1081,"current":914}
+{"_e":"metro:bundling:progress","_t":1786107688964,"id":"1","progress":0.7574516855052362,"total":1134,"current":985}
+{"_e":"metro:bundling:progress","_t":1786107689065,"id":"1","progress":0.817372831543662,"total":1199,"current":1084}
+{"_e":"metro:bundling:progress","_t":1786107689167,"id":"1","progress":0.8674548250672819,"total":1224,"current":1140}
+{"_e":"metro:bundling:progress","_t":1786107689267,"id":"1","progress":0.8674548250672819,"total":1387,"current":1223}
+{"_e":"metro:bundling:progress","_t":1786107689367,"id":"1","progress":0.8674548250672819,"total":1431,"current":1260}
+{"_e":"metro:bundling:progress","_t":1786107689492,"id":"1","progress":0.8674548250672819,"total":1461,"current":1286}
+{"_e":"metro:bundling:progress","_t":1786107689601,"id":"1","progress":0.8674548250672819,"total":1558,"current":1341}
+{"_e":"metro:bundling:progress","_t":1786107689702,"id":"1","progress":0.8674548250672819,"total":1582,"current":1377}
+{"_e":"metro:bundling:progress","_t":1786107689802,"id":"1","progress":0.8674548250672819,"total":1622,"current":1391}
+{"_e":"metro:bundling:progress","_t":1786107689870,"id":"1","progress":0.8674548250672819,"total":1622,"current":1392}
+{"_e":"metro:bundling:progress","_t":1786107689969,"id":"1","progress":0.8674548250672819,"total":1623,"current":1427}
+{"_e":"metro:bundling:progress","_t":1786107690069,"id":"1","progress":0.8674548250672819,"total":1666,"current":1498}
+{"_e":"metro:bundling:progress","_t":1786107690170,"id":"1","progress":0.8674548250672819,"total":1710,"current":1547}
+{"_e":"metro:bundling:progress","_t":1786107690275,"id":"1","progress":0.8674548250672819,"total":1759,"current":1607}
+{"_e":"metro:bundling:progress","_t":1786107690376,"id":"1","progress":0.8674548250672819,"total":1764,"current":1620}
+{"_e":"metro:bundling:progress","_t":1786107690481,"id":"1","progress":0.9172635106233002,"total":1822,"current":1745}
+{"_e":"metro:bundling:progress","_t":1786107690581,"id":"1","progress":0.9172635106233002,"total":1914,"current":1810}
+{"_e":"metro:bundling:progress","_t":1786107690681,"id":"1","progress":0.9362354252400548,"total":1944,"current":1881}
+{"_e":"metro:bundling:progress","_t":1786107690781,"id":"1","progress":0.9568467235243121,"total":2017,"current":1973}
+{"_e":"metro:bundling:progress","_t":1786107690881,"id":"1","progress":0.999,"total":2066,"current":2065}
+{"_e":"metro:bundling:progress","_t":1786107692929,"id":"1","progress":0.999,"total":2066,"current":2066}
+{"_e":"metro:bundling:failed","_t":1786107692934,"id":"1","message":"Unable to resolve \"../../../assets/flags/gb.png\" from \"apps/mobile/src/shared/ui/Flag.tsx\"\n  3 |\n  4 | const FLAGS: Record<string, number> = {\n> 5 |   gb: require('@/../assets/flags/gb.png'),\n    |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  6 |   gh: require('@/../assets/flags/gh.png'),\n  7 |   ng: require('@/../assets/flags/ng.png'),\n  8 |   ke: require('@/../assets/flags/ke.png'),","importStack":"\u001b[1mImport stack:\u001b[22m\n\n\u001b[90m \u001b[39mapps/mobile/src/shared/ui/Flag.tsx\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"../../../assets/flags/gb.png\"\u001b[39m\n\n\u001b[90m \u001b[39mapps/mobile/src/features/send-money/screens/AmountScreen.tsx\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"../../../shared/ui/Flag\"\u001b[39m\n\n\u001b[90m \u001b[39mapps/mobile/app/(app)/send/amount.tsx\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"../../../src/features/send-money/screens/AmountScreen\"\u001b[39m\n\n\u001b[90m \u001b[39mapps/mobile/app\u001b[2m (require.context)\u001b[22m\n","filename":null,"targetModuleName":"../../../assets/flags/gb.png","originModulePath":"apps/mobile/src/shared/ui/Flag.tsx"}
+{"_e":"metro:bundling:started","_t":1786107799212,"id":"2","platform":"android","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1786107799213,"id":"2","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1786107799217,"id":"2","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1786107799316,"id":"2","progress":0.02278390886436454,"total":159,"current":24}
+{"_e":"metro:bundling:progress","_t":1786107799416,"id":"2","progress":0.08137121959237344,"total":312,"current":89}
+{"_e":"metro:bundling:progress","_t":1786107799517,"id":"2","progress":0.16161208050301762,"total":398,"current":160}
+{"_e":"metro:bundling:progress","_t":1786107799617,"id":"2","progress":0.20600209692133822,"total":542,"current":246}
+{"_e":"metro:bundling:progress","_t":1786107799724,"id":"2","progress":0.2888470569970307,"total":681,"current":366}
+{"_e":"metro:bundling:progress","_t":1786107799828,"id":"2","progress":0.31870429052864546,"total":705,"current":398}
+{"_e":"metro:bundling:progress","_t":1786107799927,"id":"2","progress":0.31870429052864546,"total":824,"current":458}
+{"_e":"metro:bundling:progress","_t":1786107800027,"id":"2","progress":0.39209890079767545,"total":955,"current":598}
+{"_e":"metro:bundling:progress","_t":1786107800127,"id":"2","progress":0.5030933102861175,"total":1001,"current":710}
+{"_e":"metro:bundling:progress","_t":1786107800227,"id":"2","progress":0.5102040816326531,"total":1120,"current":800}
+{"_e":"metro:bundling:progress","_t":1786107800327,"id":"2","progress":0.6628673611111112,"total":1200,"current":977}
+{"_e":"metro:bundling:progress","_t":1786107800446,"id":"2","progress":0.675474259858091,"total":1207,"current":992}
+{"_e":"metro:bundling:progress","_t":1786107800546,"id":"2","progress":0.6837545178162581,"total":1346,"current":1113}
+{"_e":"metro:bundling:progress","_t":1786107800651,"id":"2","progress":0.7307101613848116,"total":1412,"current":1207}
+{"_e":"metro:bundling:progress","_t":1786107800787,"id":"2","progress":0.7935399074127583,"total":1447,"current":1289}
+{"_e":"metro:bundling:progress","_t":1786107800886,"id":"2","progress":0.8238674046390126,"total":1473,"current":1337}
+{"_e":"metro:bundling:progress","_t":1786107800986,"id":"2","progress":0.8734387282732117,"total":1498,"current":1400}
+{"_e":"metro:bundling:progress","_t":1786107801086,"id":"2","progress":0.8734387282732117,"total":1557,"current":1428}
+{"_e":"metro:bundling:progress","_t":1786107801190,"id":"2","progress":0.9058787910020872,"total":1576,"current":1500}
+{"_e":"metro:bundling:progress","_t":1786107801290,"id":"2","progress":0.9058787910020872,"total":1644,"current":1540}
+{"_e":"metro:bundling:progress","_t":1786107801390,"id":"2","progress":0.9058787910020872,"total":1824,"current":1647}
+{"_e":"metro:bundling:progress","_t":1786107801490,"id":"2","progress":0.9058787910020872,"total":1893,"current":1796}
+{"_e":"metro:bundling:progress","_t":1786107801590,"id":"2","progress":0.9565599238763784,"total":1958,"current":1915}
+{"_e":"metro:bundling:progress","_t":1786107801690,"id":"2","progress":0.9787957830058289,"total":2064,"current":2042}
+{"_e":"metro:bundling:done","_t":1786107801934,"id":"2","total":2064,"ms":2721.080855}

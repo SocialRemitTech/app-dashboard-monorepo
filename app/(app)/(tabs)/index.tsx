@@ -8,11 +8,13 @@ export default function Home() {
   return (
     <Screen>
       <View className="flex-1 justify-center gap-1">
-        <Text className="text-2xl font-bold text-ink-900">What would you like to do today?</Text>
-        <Text className="text-ink-500">Wallet, recent activity and actions render here.</Text>
+        <Text className="text-2xl font-display-bold text-navy-deep">Welcome back</Text>
+        <Text className="font-sans text-body text-navy/55">
+          Your wallet card, balance and activity render here (next build).
+        </Text>
       </View>
       <View className="pb-6">
-        <Button label="Send money" onPress={() => router.push('/(app)/send')} />
+        <Button label="Send money" onPress={() => router.push('/(app)/send/destination')} />
       </View>
     </Screen>
   );
