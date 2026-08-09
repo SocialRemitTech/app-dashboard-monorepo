@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "EMONI.app"
-               BlueprintName = "EMONI"
-               ReferencedContainer = "container:EMONI.xcodeproj">
+               BuildableName = "SocialRemit.app"
+               BlueprintName = "SocialRemit"
+               ReferencedContainer = "container:SocialRemit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "EMONITests.xctest"
-               BlueprintName = "EMONITests"
-               ReferencedContainer = "container:EMONI.xcodeproj">
+               BuildableName = "SocialRemitTests.xctest"
+               BlueprintName = "SocialRemitTests"
+               ReferencedContainer = "container:SocialRemit.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "EMONI.app"
-            BlueprintName = "EMONI"
-            ReferencedContainer = "container:EMONI.xcodeproj">
+            BuildableName = "SocialRemit.app"
+            BlueprintName = "SocialRemit"
+            ReferencedContainer = "container:SocialRemit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "EMONI.app"
-            BlueprintName = "EMONI"
-            ReferencedContainer = "container:EMONI.xcodeproj">
+            BuildableName = "SocialRemit.app"
+            BlueprintName = "SocialRemit"
+            ReferencedContainer = "container:SocialRemit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

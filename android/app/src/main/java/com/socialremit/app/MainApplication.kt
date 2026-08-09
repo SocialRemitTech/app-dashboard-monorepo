@@ -1,4 +1,4 @@
-package com.socialremit.emoni
+package com.socialremit.app
 
 import android.app.Application
 import android.content.res.Configuration
