@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+body { font-family: 'Inter', system-ui, sans-serif; background: #FAF7F1; }
+.font-display { font-family: 'Sora', 'Inter', sans-serif; }
+.font-mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+
+/* Financial figures line up in columns. */
+.tnum { font-variant-numeric: tabular-nums; }
+
+/* Live pulse for active corridors / real-time indicator. */
+@keyframes sr-pulse { 0% { box-shadow: 0 0 0 0 rgba(255,90,42,.5) } 70% { box-shadow: 0 0 0 6px rgba(255,90,42,0) } 100% { box-shadow: 0 0 0 0 rgba(255,90,42,0) } }
+.pulse { animation: sr-pulse 2s infinite; }
+@media (prefers-reduced-motion: reduce) { .pulse { animation: none } }

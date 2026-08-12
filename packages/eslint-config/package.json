@@ -1,0 +1,13 @@
+{
+  "name": "@sr/eslint-config",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.mjs",
+  "peerDependencies": { "eslint": "^9.0.0" },
+  "dependencies": {
+    "typescript-eslint": "^8.8.0",
+    "@eslint/js": "^9.12.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-config-prettier": "^9.1.0"
+  }
+}
