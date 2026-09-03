@@ -1,22 +1,25 @@
-# deps
-node_modules/
-.pnpm-store/
+node_modules
+.expo
+.expo-shared
+dist
+build
+.turbo
 
-# builds / caches
-dist/
-.expo/
-apps/mobile/android/
-apps/mobile/ios/
-.turbo/
-*.tsbuildinfo
+# Generated native projects — EAS prebuilds these on its servers.
+# The leading slash pins these to the REPO ROOT, where a stray `expo prebuild`
+# creates them and makes EAS treat the root as the app.
+/ios
+/android
+apps/mobile/ios
+apps/mobile/android
 
-# env & secrets
+# secrets
+apps/mobile/google-play-service-account.json
+*.keystore
+*.p8
+*.p12
 .env
-.env.*
-!.env.example
-google-play-service-account.json
+.env.local
 
-# os / editor
+*.log
 .DS_Store
-.vscode/*
-!.vscode/extensions.json
