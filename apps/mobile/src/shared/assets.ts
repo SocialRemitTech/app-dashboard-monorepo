@@ -18,7 +18,7 @@ export const images = {
 
   // Brand
   waveCream: require('../../assets/wave-cream.png'),
-  logoLockupCoral: require('../../assets/logo-lockup-coral.png'),
+  logoLockupCoral: require('../../assets/logo-mark-cream.png'),
 } as const;
 
 /** Intro carousel slides, in order. */

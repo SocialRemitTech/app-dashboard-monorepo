@@ -65,15 +65,23 @@ pnpm --filter @sr/domain test
 > Native dep versions in `apps/mobile/package.json` are guidance — `expo install` resolves the exact
 > SDK-56-compatible set. Never hand-pin Expo native deps; let the tool do it.
 
-
 pnpm --filter @sr/mobile ios
 pnpm --filter @sr/mobile android
 
 pnpm --filter @sr/mobile prebuild
 pnpm --filter @sr/mobile start
 
-eas build --profile development --platform android 
+eas build --profile development --platform android
 
 emulator -avd Pixel_10_Pro
 
 adb devices
+
+eas build --profile production --platform all
+
+cd apps/mobile
+pnpm exec expo prebuild --clean
+pnpm --filter @sr/mobile android
+
+cd /Users/mac/Documents/social-remit-monorepo
+find . -name .git -not -path "./.git*" -not -path "_/node_modules/_"

@@ -34,13 +34,10 @@
       "prettier --write"
     ]
   },
-  "pnpm": {
-    "overrides": {
-      "react": "19.2.3",
-      "react-dom": "19.2.3",
-      "string-width": "^4.2.3",
-      "strip-ansi": "^6.0.1",
-      "wrap-ansi": "^7.0.0"
-    }
+  "version": "1.0.0",
+  "dependencies": {
+    "expo": "~57.0.7",
+    "react": "19.2.3",
+    "react-native": "0.86.0"
   }
 }

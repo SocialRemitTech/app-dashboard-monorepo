@@ -11,17 +11,73 @@ import { useAccountState, verificationSummary } from '@/features/profile/stores/
 import { color } from '@sr/design-tokens';
 
 const TONE = { muted: '#9CA3AF', progress: '#F59E0B', warn: '#D64545', ok: '#2E9B63' } as const;
+const AMBER = '#F0A020'; // "in progress" CTA — deliberately NOT coral
+
+type BannerSpec = {
+  icon: keyof typeof Ionicons.glyphMap;
+  iconTint: string;
+  iconColor: string;
+  title: string;
+  body: string;
+  cta: string;
+  ctaColor: string;
+};
+
+/** One banner per state. Every CTA opens the same setup sheet, which resumes progress. */
+function bannerFor(state: string): BannerSpec | null {
+  switch (state) {
+    case 'setup_not_started':
+    case 'setup_in_progress':
+      return {
+        icon: 'person-add-outline',
+        iconTint: 'rgba(255,90,42,0.10)',
+        iconColor: color.coral.DEFAULT,
+        title: 'Finish setting up your account',
+        body: "Add your details when you're ready. You can still check rates, explore Social Remit and prepare a transfer.",
+        cta: 'Complete setup',
+        ctaColor: color.coral.DEFAULT,
+      };
+    case 'verification_not_started':
+      return {
+        icon: 'shield-checkmark-outline',
+        iconTint: 'rgba(255,90,42,0.10)',
+        iconColor: color.coral.DEFAULT,
+        title: 'Verify your identity',
+        body: 'One last step before your first transfer. It takes less than a minute and is only needed once.',
+        cta: 'Verify now',
+        ctaColor: color.coral.DEFAULT,
+      };
+    case 'verification_in_progress':
+      return {
+        icon: 'time-outline',
+        iconTint: 'rgba(240,160,32,0.12)',
+        iconColor: AMBER,
+        title: 'Verification in progress',
+        body: "We're completing the required checks. We'll let you know when they're complete.",
+        cta: 'View progress',
+        ctaColor: AMBER,
+      };
+    case 'more_info_needed':
+      return {
+        icon: 'alert-circle-outline',
+        iconTint: 'rgba(255,90,42,0.10)',
+        iconColor: color.coral.DEFAULT,
+        title: 'We need a little more information',
+        body: "We need some additional information to complete your verification. We'll guide you through what's needed.",
+        cta: 'Continue verification',
+        ctaColor: color.coral.DEFAULT,
+      };
+    default:
+      return null; // verified — no banner
+  }
+}
 
 export function PersonalDetailsScreen() {
   const s = useAccountState();
-  const resumeRoute = useAccountState((st) => st.resumeRoute);
   const [statePicker, setStatePicker] = useState(false);
   const [setupSheet, setSetupSheet] = useState(false);
   const verification = verificationSummary(s.state);
-
-  const showSetupBanner = s.state === 'setup_not_started' || s.state === 'setup_in_progress';
-  const showMoreInfoBanner = s.state === 'more_info_needed';
-  const showVerifyBanner = s.state === 'verification_not_started';
+  const banner = bannerFor(s.state);
 
   const copyId = async () => {
     try {
@@ -50,42 +106,39 @@ export function PersonalDetailsScreen() {
           Personal details
         </Text>
 
-        {/* Setup — opens the "Set up your account" sheet, which resumes where you left off */}
-        {showSetupBanner ? (
-          <Banner
-            icon="person-add-outline"
-            tint="rgba(255,90,42,0.10)"
-            iconColor={color.coral.DEFAULT}
-            title="Finish setting up your account"
-            body="Add your details when you're ready. You can still check rates, explore Social Remit and prepare a transfer."
-            cta="Complete setup"
-            onPress={() => setSetupSheet(true)}
-          />
-        ) : null}
-
-        {/* Review came back asking for more — resumes at the reopened step */}
-        {showMoreInfoBanner ? (
-          <Banner
-            icon="alert-circle-outline"
-            tint="rgba(255,90,42,0.10)"
-            iconColor={color.coral.DEFAULT}
-            title="We need a little more information"
-            body="We need some additional information to complete your verification. We'll guide you through what's needed."
-            cta="Continue verification"
-            onPress={() => router.push(resumeRoute() as never)}
-          />
-        ) : null}
-
-        {showVerifyBanner ? (
-          <Banner
-            icon="shield-checkmark-outline"
-            tint="rgba(255,90,42,0.10)"
-            iconColor={color.coral.DEFAULT}
-            title="Verify your identity"
-            body="One last step before your first transfer. It takes less than a minute and is only needed once."
-            cta="Verify now"
-            onPress={() => router.push('/(app)/account/verify-identity' as never)}
-          />
+        {/* Every state's CTA routes through the setup sheet so progress is always visible
+            and the customer resumes at the first outstanding step. */}
+        {banner ? (
+          <View className="rounded-card bg-white border border-border/60 mt-5 px-5 py-5">
+            <View className="flex-row items-start gap-3">
+              <View
+                className="h-11 w-11 rounded-input items-center justify-center"
+                style={{ backgroundColor: banner.iconTint }}
+              >
+                <Ionicons name={banner.icon} size={22} color={banner.iconColor} />
+              </View>
+              <View className="flex-1">
+                <Text className="font-sans-bold text-navy-deep" style={{ fontSize: 18 }}>
+                  {banner.title}
+                </Text>
+                <Text
+                  className="font-sans text-navy/55 mt-1.5"
+                  style={{ fontSize: 15, lineHeight: 22 }}
+                >
+                  {banner.body}
+                </Text>
+              </View>
+            </View>
+            <Pressable
+              onPress={() => setSetupSheet(true)}
+              className="rounded-button items-center justify-center mt-4"
+              style={{ height: 54, backgroundColor: banner.ctaColor }}
+            >
+              <Text className="font-sans-bold text-white" style={{ fontSize: 17 }}>
+                {banner.cta}
+              </Text>
+            </Pressable>
+          </View>
         ) : null}
 
         <View className="rounded-card bg-white border border-border/60 mt-5 px-5">
@@ -158,54 +211,6 @@ export function PersonalDetailsScreen() {
       <SetupAccountSheet visible={setupSheet} onClose={() => setSetupSheet(false)} />
       <AccountStateSheet visible={statePicker} onClose={() => setStatePicker(false)} />
     </Screen>
-  );
-}
-
-function Banner({
-  icon,
-  tint,
-  iconColor,
-  title,
-  body,
-  cta,
-  onPress,
-}: {
-  icon: keyof typeof Ionicons.glyphMap;
-  tint: string;
-  iconColor: string;
-  title: string;
-  body: string;
-  cta: string;
-  onPress: () => void;
-}) {
-  return (
-    <View className="rounded-card bg-white border border-border/60 mt-5 px-5 py-5">
-      <View className="flex-row items-start gap-3">
-        <View
-          className="h-11 w-11 rounded-input items-center justify-center"
-          style={{ backgroundColor: tint }}
-        >
-          <Ionicons name={icon} size={22} color={iconColor} />
-        </View>
-        <View className="flex-1">
-          <Text className="font-sans-bold text-navy-deep" style={{ fontSize: 18 }}>
-            {title}
-          </Text>
-          <Text className="font-sans text-navy/55 mt-1.5" style={{ fontSize: 15, lineHeight: 22 }}>
-            {body}
-          </Text>
-        </View>
-      </View>
-      <Pressable
-        onPress={onPress}
-        className="rounded-button items-center justify-center mt-4"
-        style={{ height: 54, backgroundColor: color.coral.DEFAULT }}
-      >
-        <Text className="font-sans-bold text-white" style={{ fontSize: 17 }}>
-          {cta}
-        </Text>
-      </Pressable>
-    </View>
   );
 }
 

@@ -1,12 +1,10 @@
 eas login
 cd apps/mobile
 eas build:configure
-y      # cloud-builds the iOS .ipa
-eas build --platform android --profile production    # cloud-builds the Android .aab
-eas submit --platform ios --profile production        # uploads to TestFlight
+y # cloud-builds the iOS .ipa
+eas build --platform android --profile production # cloud-builds the Android .aab
+eas submit --platform ios --profile production # uploads to TestFlight
 eas submit --platform android --profile production
-
-
 
 The important thing first: creating that service account requires your Google Play Developer account to be fully set up and past the initial app creation — and crucially, Google requires your very first upload to a new app to be done manually through the Play Console website. eas submit (which needs this JSON) only works for subsequent uploads. So for a brand-new app, the JSON isn't even usable yet.
 
@@ -32,5 +30,13 @@ Back in Play Console → API access → grant that service account access (Relea
 Save the downloaded JSON as apps/mobile/google-play-service-account.json — the exact path in your eas.json.
 Add it to .gitignore — it's a secret, never commit it.
 
-
 eas build --profile production --platform all
+
+cd /Users/mac/Documents/social-remit-monorepo
+sed -i '' '/^expo-env.d.ts$/d' apps/mobile/.gitignore
+git add -f apps/mobile/expo-env.d.ts apps/mobile/.gitignore
+git commit -m "chore: track expo-env.d.ts for expo-router types"
+git push
+
+cd apps/mobile
+eas build --platform android --profile production

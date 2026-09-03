@@ -28,7 +28,7 @@ const config: ExpoConfig = {
   android: {
     package: 'com.socialremit.app',
     adaptiveIcon: {
-      foregroundImage: './assets/adaptive-icon.png',
+      foregroundImage: './assets/logo-mark.png',
       backgroundColor: '#FF5A2A',
     },
   },
@@ -41,10 +41,14 @@ const config: ExpoConfig = {
     [
       'expo-splash-screen',
       {
-        image: './assets/splash.png',
+        image: './assets/logo-mark-cream.png',
         backgroundColor: '#FF5A2A',
-        imageWidth: 180,
+        imageWidth: 160,
         resizeMode: 'contain',
+        dark: {
+          image: './assets/logo-mark-cream.png',
+          backgroundColor: '#FF5A2A',
+        },
       },
     ],
     ['expo-build-properties', { ios: { deploymentTarget: '16.4' } }],

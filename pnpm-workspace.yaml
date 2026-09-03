@@ -1,3 +1,19 @@
+# pnpm-workspace.yaml
+# pnpm 10 no longer reads the "pnpm" field in package.json — overrides live here now.
+# See: https://pnpm.io/settings
+
 packages:
-  - "apps/*"
-  - "packages/*"
+  - 'apps/*'
+  - 'packages/*'
+
+overrides:
+  # React MUST match react-native-renderer exactly or the app red-screens on boot.
+  react: 19.2.3
+  react-dom: 19.2.3
+
+  # These three went ESM-only (v5/v7/v8) but much of the CLI ecosystem still require()s
+  # them. Pinning the last CommonJS releases fixes "stringWidth is not a function" in
+  # Expo CLI. Terminal output only — nothing reaches the app bundle.
+  string-width: ^4.2.3
+  strip-ansi: ^6.0.1
+  wrap-ansi: ^7.0.0
