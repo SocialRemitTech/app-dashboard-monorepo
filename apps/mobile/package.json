@@ -1,0 +1,73 @@
+{
+  "name": "@sr/mobile",
+  "version": "0.1.0",
+  "private": true,
+  "main": "expo-router/entry",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@expo-google-fonts/inter": "^0.4.2",
+    "@expo-google-fonts/sora": "^0.4.2",
+    "@expo/metro-runtime": "~56.0.21",
+    "@expo/vector-icons": "^15.0.2",
+    "@react-native-async-storage/async-storage": "2.2.0",
+    "@sr/api-contract": "workspace:*",
+    "@sr/config": "workspace:*",
+    "@sr/design-tokens": "workspace:*",
+    "@sr/domain": "workspace:*",
+    "@tanstack/react-query": "^5.62.0",
+    "expo": "~56.0.21",
+    "expo-build-properties": "~56.0.27",
+    "expo-constants": "~56.0.25",
+    "expo-crypto": "~56.0.5",
+    "expo-font": "~56.0.7",
+    "expo-linear-gradient": "~56.0.4",
+    "expo-linking": "~56.0.17",
+    "expo-local-authentication": "~56.0.5",
+    "expo-notifications": "~56.0.25",
+    "expo-router": "~56.2.20",
+    "expo-screen-capture": "~56.0.5",
+    "expo-secure-store": "~56.0.4",
+    "expo-splash-screen": "~56.0.15",
+    "expo-status-bar": "~56.0.4",
+    "expo-updates": "~56.0.26",
+    "nativewind": "^4.1.23",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-native": "0.85.3",
+    "react-native-gesture-handler": "~2.31.1",
+    "react-native-reanimated": "4.3.1",
+    "react-native-safe-area-context": "~5.7.0",
+    "react-native-screens": "~4.26.0",
+    "xstate": "^5.19.0",
+    "zod": "^3.24.1",
+    "zustand": "^5.0.2"
+  },
+  "devDependencies": {
+    "@sr/eslint-config": "workspace:*",
+    "@sr/tsconfig": "workspace:*",
+    "@types/react": "~19.2.0",
+    "babel-plugin-module-resolver": "^5.0.2",
+    "tailwindcss": "^3.4.17",
+    "typescript": "~5.9.3"
+  },
+  "expo": {
+    "doctor": {
+      "reactNativeDirectoryCheck": {
+        "enabled": true
+      },
+      "exclude": []
+    },
+    "install": {
+      "exclude": [
+        "jest",
+        "typescript"
+      ]
+    }
+  }
+}

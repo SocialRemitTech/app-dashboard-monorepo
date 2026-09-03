@@ -1,0 +1,80 @@
+{
+  "expo": {
+    "name": "Social Remit",
+    "slug": "social-remit",
+    "owner": "tettehephraim",
+    "scheme": "socialremit",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "primaryColor": "#FF5A2A",
+    "icon": "./assets/logo-mark.png",
+    "runtimeVersion": "1.0.0",
+    "updates": {
+      "url": "https://u.expo.dev/d8578f9d-7ab9-44f4-8e06-349b37636934",
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.socialremit.app",
+      "buildNumber": "1",
+      "config": {
+        "usesNonExemptEncryption": false
+      },
+      "infoPlist": {
+        "NSFaceIDUsageDescription": "Social Remit uses Face ID to unlock your account and approve payments securely.",
+        "NSCameraUsageDescription": "Social Remit uses the camera to capture your ID document during verification.",
+        "NSPhotoLibraryUsageDescription": "Social Remit needs access to your photos so you can upload verification documents.",
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "package": "com.socialremit.app",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/logo-mark.png",
+        "backgroundColor": "#FF5A2A"
+      },
+      "permissions": [
+        "USE_BIOMETRIC",
+        "USE_FINGERPRINT",
+        "CAMERA",
+        "RECEIVE_BOOT_COMPLETED",
+        "VIBRATE"
+      ],
+      "blockedPermissions": ["android.permission.RECORD_AUDIO"]
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      "expo-local-authentication",
+      "expo-notifications",
+      "expo-font",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/logo-mark-cream.png",
+          "backgroundColor": "#FF5A2A",
+          "imageWidth": 180,
+          "resizeMode": "contain"
+        }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "ios": { "deploymentTarget": "16.4" },
+          "android": { "compileSdkVersion": 35, "targetSdkVersion": 35, "minSdkVersion": 24 }
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "d8578f9d-7ab9-44f4-8e06-349b37636934"
+      }
+    }
+  }
+}
