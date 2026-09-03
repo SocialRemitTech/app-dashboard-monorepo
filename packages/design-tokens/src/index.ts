@@ -55,17 +55,7 @@ export const color = {
 } as const;
 
 export const space = {
-  0: 0,
-  1: 4,
-  2: 8,
-  3: 12,
-  4: 16,
-  5: 20,
-  6: 24,
-  8: 32,
-  10: 40,
-  12: 48,
-  16: 64,
+  0: 0, 1: 4, 2: 8, 3: 12, 4: 16, 5: 20, 6: 24, 8: 32, 10: 40, 12: 48, 16: 64,
 } as const;
 
 // Corner radii per spec §4.
@@ -81,41 +71,17 @@ export const typography = {
   // Sora = display/headings. Inter = everything else. Do not add other fonts (spec §2).
   fontFamily: { display: 'Sora', sans: 'Inter' },
   size: {
-    caption: 12,
-    label: 14,
-    body: 15,
-    base: 16,
-    lg: 18,
-    h2: 24,
-    h1: 30,
-    balance: 40,
+    caption: 12, label: 14, body: 15, base: 16, lg: 18,
+    h2: 24, h1: 30, balance: 40,
   },
   weight: { regular: '400', medium: '500', semibold: '600', bold: '700', extrabold: '800' },
 } as const;
 
 // Coral-tinted shadows for active CTAs; neutral for cards (spec §4).
 export const shadow = {
-  ctaActive: {
-    shadowColor: '#FF5A2A',
-    shadowOpacity: 0.2,
-    shadowRadius: 12,
-    shadowOffset: { width: 0, height: 4 },
-    elevation: 4,
-  },
-  card: {
-    shadowColor: '#000',
-    shadowOpacity: 0.05,
-    shadowRadius: 6,
-    shadowOffset: { width: 0, height: 1 },
-    elevation: 2,
-  },
-  sheet: {
-    shadowColor: '#12233B',
-    shadowOpacity: 0.13,
-    shadowRadius: 24,
-    shadowOffset: { width: 0, height: -4 },
-    elevation: 12,
-  },
+  ctaActive: { shadowColor: '#FF5A2A', shadowOpacity: 0.2, shadowRadius: 12, shadowOffset: { width: 0, height: 4 }, elevation: 4 },
+  card: { shadowColor: '#000', shadowOpacity: 0.05, shadowRadius: 6, shadowOffset: { width: 0, height: 1 }, elevation: 2 },
+  sheet: { shadowColor: '#12233B', shadowOpacity: 0.13, shadowRadius: 24, shadowOffset: { width: 0, height: -4 }, elevation: 12 },
 } as const;
 
 export const motion = {

@@ -7,11 +7,7 @@ import { CorridorsPage } from '@/features/corridors/CorridorsPage';
 import { DashboardLayout } from '@/app/layout/DashboardLayout';
 
 function Stub({ title }: { title: string }) {
-  return (
-    <DashboardLayout title={title}>
-      <div className="text-[#8A8578]">Coming next.</div>
-    </DashboardLayout>
-  );
+  return <DashboardLayout title={title}><div className="text-[#8A8578]">Coming next.</div></DashboardLayout>;
 }
 export function App() {
   return (

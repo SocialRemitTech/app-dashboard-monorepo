@@ -1,0 +1,359 @@
+%% Social Remit / EMONI — Backend Entity-Relationship Diagram
+%% Companion to the Backend Architecture & Phasing Plan (§1 ledger, §2 services, §3 data model).
+%% Convention: every money field is an INTEGER in the currency's minor unit + an ISO currency code — never a float.
+
+erDiagram
+
+  %% ─────────────────────────── IDENTITY & AUTH ───────────────────────────
+  USER ||--o{ DEVICE : registers
+  USER ||--o{ CREDENTIAL : has
+  DEVICE ||--o{ SESSION : issues
+  USER ||--o{ SESSION : owns
+
+  %% ─────────────────────────── COMPLIANCE (KYC / AML) ────────────────────
+  USER ||--|| KYC_PROFILE : "has one"
+  KYC_PROFILE ||--o{ SCREENING_RESULT : produces
+  USER ||--o{ COMPLIANCE_CASE : "subject of"
+  TRANSFER ||--o{ SCREENING_RESULT : triggers
+  TRANSFER ||--o| COMPLIANCE_CASE : "may raise"
+
+  %% ─────────────────────────── CONFIG / CORRIDORS ────────────────────────
+  CORRIDOR ||--o{ DELIVERY_METHOD : offers
+  CORRIDOR ||--o{ FEE_RULE : "priced by"
+  CORRIDOR ||--o{ CORRIDOR_PARTNER : "routed via"
+  PAYOUT_PARTNER ||--o{ CORRIDOR_PARTNER : serves
+
+  %% ─────────────────────────── PRICING ───────────────────────────────────
+  USER ||--o{ QUOTE : requests
+  CORRIDOR ||--o{ QUOTE : "priced for"
+  QUOTE ||--o| TRANSFER : "locked into"
+
+  %% ─────────────────────────── RECIPIENTS ────────────────────────────────
+  USER ||--o{ RECIPIENT : "saves"
+  CORRIDOR ||--o{ RECIPIENT : "scoped to"
+  RECIPIENT ||--o{ TRANSFER : "paid to"
+
+  %% ─────────────────────────── TRANSFER (SAGA ROOT) ──────────────────────
+  USER ||--o{ TRANSFER : sends
+  CORRIDOR ||--o{ TRANSFER : "flows through"
+  TRANSFER ||--o| PAY_IN_INTENT : "funded by"
+  TRANSFER ||--o{ PAYOUT_ATTEMPT : "delivered by"
+  TRANSFER ||--o{ JOURNAL_ENTRY : "booked as"
+  TRANSFER ||--o| PROMO_REDEMPTION : "may apply"
+
+  %% ─────────────────────────── PAY-IN (PAYMENTS) ─────────────────────────
+  USER ||--o{ PAYMENT_METHOD : "saves"
+  PAYMENT_METHOD ||--o{ PAY_IN_INTENT : "charged via"
+
+  %% ─────────────────────────── PAYOUT / MTO ──────────────────────────────
+  PAYOUT_PARTNER ||--o{ PAYOUT_ATTEMPT : fulfils
+  PAYOUT_PARTNER ||--o{ SETTLEMENT_STATEMENT : issues
+  PAYOUT_PARTNER ||--o{ INBOUND_WEBHOOK_EVENT : "calls back"
+  TRANSFER ||--o{ INBOUND_WEBHOOK_EVENT : "referenced by"
+
+  %% ─────────────────────────── LEDGER (THE SPINE, §1) ────────────────────
+  JOURNAL_ENTRY ||--|{ JOURNAL_LINE : "balances to zero"
+  LEDGER_ACCOUNT ||--o{ JOURNAL_LINE : "posted to"
+
+  %% ─────────────────────────── RECONCILIATION & SETTLEMENT (§1.4) ────────
+  SETTLEMENT_STATEMENT ||--o{ STATEMENT_LINE : contains
+  STATEMENT_LINE ||--o| RECON_MATCH : "matched by"
+  PAYOUT_ATTEMPT ||--o| RECON_MATCH : "matched by"
+  RECON_MATCH ||--o| JOURNAL_ENTRY : "settles via"
+
+  %% ─────────────────────────── WALLET ────────────────────────────────────
+  USER ||--|| WALLET : owns
+  WALLET ||--|| LEDGER_ACCOUNT : "balance held in"
+  WALLET ||--o{ WALLET_TOPUP : "topped up by"
+  PAY_IN_INTENT ||--o| WALLET_TOPUP : funds
+
+  %% ─────────────────────────── PROMOTIONS ────────────────────────────────
+  PROMOTION ||--o{ PROMO_REDEMPTION : "redeemed as"
+  USER ||--o{ PROMO_REDEMPTION : redeems
+
+  %% ─────────────────────────── NOTIFICATIONS ─────────────────────────────
+  USER ||--o{ NOTIFICATION : receives
+
+
+  %% ══════════════════════════ ENTITY ATTRIBUTES ══════════════════════════
+
+  USER {
+    uuid id PK
+    string phone "E.164, nullable"
+    string email "nullable"
+    string status "active | suspended"
+    string preferred_name
+    string greeting_phrase
+    bool marketing_opt_in
+    timestamp created_at
+  }
+
+  DEVICE {
+    uuid id PK
+    uuid user_id FK
+    string platform "ios | android | web"
+    string push_token "FCM / APNs, nullable"
+    bool biometric_bound
+    timestamp last_seen_at
+  }
+
+  CREDENTIAL {
+    uuid id PK
+    uuid user_id FK
+    string type "pin | social"
+    string secret_hash "PIN verified server-side; never plaintext"
+    string provider "google | apple, nullable"
+    string provider_ref "nullable"
+  }
+
+  SESSION {
+    uuid id PK
+    uuid user_id FK
+    uuid device_id FK
+    string refresh_token_ref "opaque; token in secure store on device"
+    timestamp issued_at
+    timestamp expires_at
+  }
+
+  KYC_PROFILE {
+    uuid id PK
+    uuid user_id FK
+    string status "not_started | in_progress | verified | review | rejected"
+    string level "basic | edd"
+    string source_of_funds "nullable"
+    string source_of_wealth "nullable"
+    string sumsub_applicant_ref "nullable"
+    timestamp verified_at "nullable"
+  }
+
+  SCREENING_RESULT {
+    uuid id PK
+    uuid kyc_profile_id FK "nullable"
+    uuid transfer_id FK "nullable"
+    string type "sanctions | pep | aml"
+    string outcome "clear | hit | review"
+    string provider_ref
+    timestamp created_at
+  }
+
+  COMPLIANCE_CASE {
+    uuid id PK
+    uuid user_id FK
+    uuid transfer_id FK "nullable"
+    string type "sanctions_hit | edd | manual_review"
+    string status "open | in_review | approved | rejected"
+    uuid assigned_mlro "nullable"
+    timestamp created_at
+  }
+
+  CORRIDOR {
+    uuid id PK
+    string from_country "e.g. GB"
+    string to_country "e.g. GH"
+    string send_currency "e.g. GBP"
+    string receive_currency "e.g. GHS"
+    string required_kyc_level "basic | edd"
+    bool active
+    int version
+  }
+
+  DELIVERY_METHOD {
+    uuid id PK
+    uuid corridor_id FK
+    string type "mobile_wallet | bank | cash_pickup | account_credit"
+    json recipient_schema "fields required for this method"
+    int min_amount_minor
+    int max_amount_minor
+  }
+
+  FEE_RULE {
+    uuid id PK
+    uuid corridor_id FK
+    string model "flat | tiered | percent"
+    json params
+    int version
+  }
+
+  PAYOUT_PARTNER {
+    uuid id PK
+    string name "BigPay | Velocity | CSLPay | M-Pesa | Mukuru | MoneyMatch"
+    string auth_scheme "bearer_ip | bearer_ip_hmac"
+    bool active
+  }
+
+  CORRIDOR_PARTNER {
+    uuid id PK
+    uuid corridor_id FK
+    uuid partner_id FK
+    string delivery_type
+    int priority "routing preference; lower = preferred"
+    bool failover_enabled
+  }
+
+  QUOTE {
+    uuid id PK
+    uuid user_id FK
+    uuid corridor_id FK
+    string rate_id "provider-locked reference"
+    int send_amount_minor
+    int receive_amount_minor
+    decimal fx_rate
+    int fee_minor
+    int margin_minor
+    timestamp expires_at
+    timestamp created_at
+  }
+
+  RECIPIENT {
+    uuid id PK
+    uuid user_id FK
+    uuid corridor_id FK
+    string delivery_type
+    string full_name
+    string identifier "account no / wallet no / null for cash pickup"
+    string institution "bank / operator, nullable"
+    string relationship "nullable"
+    bool validated "name-enquiry passed"
+  }
+
+  TRANSFER {
+    uuid id PK
+    uuid user_id FK
+    uuid quote_id FK
+    uuid recipient_id FK
+    uuid corridor_id FK
+    string canonical_status "created | screening | priced | pay_in | reserved | routing | payout_submitted | processing | paid_on_partner | reconciled | completed | failed | rejected"
+    string idempotency_key UK "client-minted; at-most-once"
+    timestamp created_at
+  }
+
+  PAYMENT_METHOD {
+    uuid id PK
+    uuid user_id FK
+    string type "card | open_banking | wallet | apple_pay | google_pay"
+    string psp_token "tokenised; raw PAN never stored"
+    string last4 "nullable"
+    string brand "nullable"
+  }
+
+  PAY_IN_INTENT {
+    uuid id PK
+    uuid transfer_id FK
+    uuid payment_method_id FK
+    int amount_minor
+    string currency
+    string status "pending | authorised | captured | failed"
+    string psp_ref
+    string idempotency_key UK
+  }
+
+  PAYOUT_ATTEMPT {
+    uuid id PK
+    uuid transfer_id FK
+    uuid partner_id FK
+    string partner_ref "returned by MTO"
+    string idempotency_ref "partner-facing; prevents double-pay"
+    string status "submitted | processing | paid | failed"
+    string direction_asserted "inbound (guards Velocity Payout vs Remittance)"
+    timestamp submitted_at
+  }
+
+  LEDGER_ACCOUNT {
+    uuid id PK
+    string type "pay_in_clearing | customer_payable | fee_revenue | fx_margin | partner_float | payout_clearing | settlement"
+    string currency
+    uuid owner_ref "user_id or partner_id, nullable"
+  }
+
+  JOURNAL_ENTRY {
+    uuid id PK
+    uuid transfer_id FK "nullable (e.g. float top-ups)"
+    string step "FUNDS_RESERVED | FEE | FX | PAYOUT | SETTLEMENT"
+    timestamp created_at "append-only; never updated"
+  }
+
+  JOURNAL_LINE {
+    uuid id PK
+    uuid journal_entry_id FK
+    uuid account_id FK
+    string direction "debit | credit"
+    int amount_minor
+    string currency
+  }
+
+  SETTLEMENT_STATEMENT {
+    uuid id PK
+    uuid partner_id FK
+    string period "settlement cycle"
+    timestamp ingested_at
+  }
+
+  STATEMENT_LINE {
+    uuid id PK
+    uuid statement_id FK
+    string partner_ref
+    int amount_minor
+    string currency
+    string partner_status
+  }
+
+  RECON_MATCH {
+    uuid id PK
+    uuid statement_line_id FK
+    uuid payout_attempt_id FK "nullable if unmatched"
+    uuid settlement_journal_id FK "nullable until settled"
+    string status "matched | break"
+    string break_type "partner_paid_no_record | platform_paid_missing | amount_mismatch | duplicate | stuck, nullable"
+  }
+
+  WALLET {
+    uuid id PK
+    uuid user_id FK
+    uuid ledger_account_id FK "balance is derived from ledger"
+    string currency "GBP"
+  }
+
+  WALLET_TOPUP {
+    uuid id PK
+    uuid wallet_id FK
+    uuid pay_in_intent_id FK
+    int amount_minor
+    string funding_method "open_banking | debit_card"
+    string status
+  }
+
+  PROMOTION {
+    uuid id PK
+    string code
+    string type "welcome_discount | loyalty"
+    json params
+    bool active
+    int version
+  }
+
+  PROMO_REDEMPTION {
+    uuid id PK
+    uuid promotion_id FK
+    uuid user_id FK
+    uuid transfer_id FK "nullable"
+    string status "pending | used | expired"
+    timestamp redeemed_at "nullable"
+  }
+
+  INBOUND_WEBHOOK_EVENT {
+    uuid id PK
+    uuid partner_id FK
+    uuid transfer_id FK "nullable"
+    string payload_ref
+    bool signature_verified "untrusted until verified; triggers a pull, never moves money alone"
+    timestamp received_at
+  }
+
+  NOTIFICATION {
+    uuid id PK
+    uuid user_id FK
+    string channel "push | sms | email"
+    string type
+    string status "queued | sent | failed"
+    timestamp sent_at "nullable"
+  }

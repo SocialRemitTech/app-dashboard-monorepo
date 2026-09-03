@@ -20,10 +20,8 @@ export function CorridorsPage() {
 
       <div className="rounded-2xl bg-white border border-[#ECE5D8] overflow-hidden">
         {corridors.map((c, i) => (
-          <div
-            key={c.code}
-            className={`flex items-center gap-4 px-5 py-4 ${i > 0 ? 'border-t border-[#F1ECE1]' : ''} ${c.live ? '' : 'opacity-70'}`}
-          >
+          <div key={c.code}
+            className={`flex items-center gap-4 px-5 py-4 ${i > 0 ? 'border-t border-[#F1ECE1]' : ''} ${c.live ? '' : 'opacity-70'}`}>
             <div className="text-2xl w-8 text-center">{c.flag}</div>
 
             <div className="w-44">
@@ -32,8 +30,7 @@ export function CorridorsPage() {
             </div>
 
             <div className="w-32 text-sm tnum text-[#374151]">
-              £1 = {c.rate.toLocaleString('en-GB', { minimumFractionDigits: 2 })}{' '}
-              {c.receiveCurrency}
+              £1 = {c.rate.toLocaleString('en-GB', { minimumFractionDigits: 2 })} {c.receiveCurrency}
             </div>
 
             {/* volume bar (live only) */}
@@ -41,14 +38,9 @@ export function CorridorsPage() {
               {c.live ? (
                 <div className="flex items-center gap-3">
                   <div className="h-2 rounded-full bg-[#F1ECE1] flex-1 max-w-[220px]">
-                    <div
-                      className="h-2 rounded-full bg-[#FF5A2A]"
-                      style={{ width: `${((VOL[c.code] ?? 0) / maxVol) * 100}%` }}
-                    />
+                    <div className="h-2 rounded-full bg-[#FF5A2A]" style={{ width: `${((VOL[c.code] ?? 0) / maxVol) * 100}%` }} />
                   </div>
-                  <span className="text-xs tnum text-[#8A8578]">
-                    £{(VOL[c.code] ?? 0).toLocaleString('en-GB')} / wk
-                  </span>
+                  <span className="text-xs tnum text-[#8A8578]">£{(VOL[c.code] ?? 0).toLocaleString('en-GB')} / wk</span>
                 </div>
               ) : (
                 <span className="text-xs text-[#B3AC9C]">No traffic yet</span>
@@ -66,31 +58,21 @@ export function CorridorsPage() {
               )}
             </div>
 
-            <Toggle
-              on={c.live}
-              onChange={(v) => setLive(c.code, v)}
-              label={`Make ${c.country} ${c.live ? 'coming soon' : 'live'}`}
-            />
+            <Toggle on={c.live} onChange={(v) => setLive(c.code, v)} label={`Make ${c.country} ${c.live ? 'coming soon' : 'live'}`} />
           </div>
         ))}
       </div>
 
       <p className="text-xs text-[#8A8578] mt-4">
-        Flipping a corridor live makes it selectable for senders immediately. Rates and payout
-        partners are managed per corridor.
+        Flipping a corridor live makes it selectable for senders immediately. Rates and payout partners are managed per corridor.
       </p>
     </DashboardLayout>
   );
 }
 
 function Badge({ tone, children }: { tone: 'live' | 'soon'; children: React.ReactNode }) {
-  const s =
-    tone === 'live'
-      ? { background: '#FFEDE7', color: '#FF5A2A' }
-      : { background: '#F1ECE1', color: '#8A8578' };
-  return (
-    <span className="rounded-full px-3 py-1 text-xs font-semibold" style={s}>
-      {children}
-    </span>
-  );
+  const s = tone === 'live'
+    ? { background: '#FFEDE7', color: '#FF5A2A' }
+    : { background: '#F1ECE1', color: '#8A8578' };
+  return <span className="rounded-full px-3 py-1 text-xs font-semibold" style={s}>{children}</span>;
 }

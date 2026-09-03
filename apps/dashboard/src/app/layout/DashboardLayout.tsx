@@ -2,15 +2,7 @@
 import type { ReactNode } from 'react';
 import { Sidebar } from './Sidebar';
 import { Topbar } from './Topbar';
-export function DashboardLayout({
-  title,
-  sub,
-  children,
-}: {
-  title: string;
-  sub?: string;
-  children: ReactNode;
-}) {
+export function DashboardLayout({ title, sub, children }: { title: string; sub?: string; children: ReactNode }) {
   return (
     <div className="min-h-screen flex">
       <Sidebar />

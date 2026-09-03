@@ -1,0 +1,18 @@
+{
+  "expo": {
+    "extra": {
+      "eas": {
+        "projectId": "d8578f9d-7ab9-44f4-8e06-349b37636934"
+      }
+    },
+    "android": {
+      "package": "com.tettehephraim.socialremit"
+    },
+    "ios": {
+      "bundleIdentifier": "com.tettehephraim.socialremit",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    }
+  }
+}

@@ -6,18 +6,10 @@ export const tailwindPreset = {
   theme: {
     extend: {
       colors: {
-        coral: color.coral,
-        navy: color.navy,
-        cream: color.cream,
-        splash: color.splash,
-        white: color.white,
-        grey: color.grey,
-        border: color.border,
-        success: color.success,
-        processing: color.processing,
-        warning: color.warning,
-        failed: color.failed,
-        error: color.error,
+        coral: color.coral, navy: color.navy, cream: color.cream, splash: color.splash,
+        white: color.white, grey: color.grey, border: color.border,
+        success: color.success, processing: color.processing, warning: color.warning,
+        failed: color.failed, error: color.error,
       },
       spacing: Object.fromEntries(Object.entries(space).map(([k, v]) => [k, `${v}px`])),
       borderRadius: Object.fromEntries(Object.entries(radius).map(([k, v]) => [k, `${v}px`])),
